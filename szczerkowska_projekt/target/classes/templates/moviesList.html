@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biblioteka Filmów</title>
+        <style>
+            head,body{
+                background: rgb(175, 146, 175);
+            }
+            table{
+                width: 60%;
+                border-collapse: collapse;
+                align-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: medium;
+            }
+            th, td{
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+            h1, title, a{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div{
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <br><br><br><br><h1>Biblioteka Filmów</h1><br><br><br>
+        <table>
+            <tr>
+                <th>Tytuł</th>
+                <th>Rok wydania</th>
+                <th>Reżyser</th>
+                <th></th>
+            </tr>
+            <tr th:each="movie : ${movies}">
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.rok}"></td>
+                <td th:text="${movie.director}"></td>
+                <td><a th:href="@{'del/' + ${movie.id}}"><button>Usuń</button></a></td>
+            </tr>
+        </table>
+        <div>
+            <br><br><br><a th:href="@{'new'}"><button>Dodaj nowy film do biblioteki</button></a>
+        </div>
+    </body>
+</html>

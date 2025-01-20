@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dodaj Film</title>
+        <style>
+            head,body{
+                background: rgb(175, 146, 175);
+            }
+            div{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            form{
+                width: 60%;
+                border-collapse: collapse;
+                align-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: medium;
+            }
+            h1{
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <br><br><br><br><br><br><h1>Dodaj Film</h1><br><br>
+        <form action="#" method="post" th:action="@{add}" th:object="${movie}">
+            <div>
+                <input type="text" th:field="*{title}" placeholder="Tytuł">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+            </div>
+            <div>
+                <input type="number" th:field="*{rok}" placeholder="Rok wydania">
+                <span th:if="${#fields.hasErrors('rok')}" th:errors="*{rok}"></span>
+            </div>
+            <div>
+                <input type="text" th:field="*{director}" placeholder="Reżyser">
+                <span th:if="${#fields.hasErrors('director')}" th:errors="*{director}"></span>
+            </div>
+            <div>
+                <br><button type="submit">Zapisz</button>
+            </div>
+        </form>
+    </body>
+</html>

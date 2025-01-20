@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuń Film</title>
+    <style>
+        head,body{
+                background: rgb(175, 146, 175);
+        }
+        div, p{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        p{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <br><br><br><br><br><br><br><br><p>Czy na pewno chcesz usunąć film z biblioteki?</p>
+        <p>
+            <span th:text="${movie.title}"></span>
+            <span th:text="${movie.director}"></span>
+        </p>
+    </div><br>
+    <div>
+        <a th:href="@{'/movies/delete/' + ${movie.Id}(accept=true)}"><button>Tak</button></a>
+        <a th:href="@{'/movies/'}"><button>Nie</button></a>
+    </div>
+</body>
+</html>
